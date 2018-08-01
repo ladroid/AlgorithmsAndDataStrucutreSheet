@@ -27,14 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
         TreeNode child1 = new TreeNode("ChildNode1");
 
-        TreeNode parent2 = new TreeNode("Book2");
-        TreeNode childb0 = new TreeNode("Example");
+        TreeNode parent2 = new TreeNode("Internet");
+            TreeNode childb0 = new TreeNode("    Fundamentals");
+                TreeNode childOfb00 = new TreeNode("         Selection Sort");
+                TreeNode childOfb01 = new TreeNode("         Example");
         TreeNode childb1 = new TreeNode("ChildNode1");
 
         child0.addChildren(childOf00, childOf01);
         parent1.addChildren(child0, child1);
 
 
+        childb0.addChildren(childOfb00, childOfb01);
         parent2.addChildren(childb0, childb1);
 
         root.addChildren(parent1, parent2);
@@ -46,6 +49,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(TreeNode node, Object value) {
                 startActivity(new Intent(MainActivity.this, Example.class));
+            }
+        });
+
+        childOfb00.setClickListener(new TreeNode.TreeNodeClickListener() {
+            @Override
+            public void onClick(TreeNode node, Object value) {
+                startActivity(new Intent(MainActivity.this, InternetSelectionSort.class));
             }
         });
     }
